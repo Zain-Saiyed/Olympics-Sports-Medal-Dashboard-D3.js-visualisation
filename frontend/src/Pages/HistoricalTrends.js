@@ -41,7 +41,7 @@ const HistoricalTrends = () => {
     };
 
     fetchChartData();
-  }, [selectedYear, areaChartData, polarArea1ChartData, polarArea2ChartData]);  
+  }, [selectedYear]);  
 
   // Display charts 
   useEffect(() => { 
@@ -93,7 +93,7 @@ const HistoricalTrends = () => {
       display_text(chart2_heading_svg, chart2_width*1.22, -chart2_height*0.8,`In the year ${selectedYear} By Sport Catgeory`,"28px",primary_text_color_accent)
 
     }
-  }, [apiFetchStatus, selectedYear, showPolarChart])
+  }, [apiFetchStatus, selectedYear, showPolarChart,areaChartData, polarArea1ChartData, polarArea2ChartData])
 
 
   return (
