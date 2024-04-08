@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { display_text, display_axis_label } from '../Components/TextHelper.js';
 import { createCountBarChart } from '../Components/BarChartHelper.js';
 import { bar_color_palette, primary_text_color_accent, getChartContainer } from '../Components/Utility.js';

@@ -3,7 +3,7 @@ import { getChartContainer } from '../Components/Utility.js';
 import { display_axis_label } from '../Components/TextHelper.js';
 import { createCountBarChart } from '../Components/BarChartHelper.js';
 import { createScatterChart } from '../Components/LineChartHelper.js';
-import { bar_color_palette, plotly_white_palette } from '../Components/Utility.js';
+import { plotly_white_palette } from '../Components/Utility.js';
 
 const AthleteAnalysis = () => {
   const [apiFetchStatus, setApiFetchStatus] = useState(false);
@@ -38,7 +38,7 @@ const AthleteAnalysis = () => {
     const chartWidth = 75;
     const svgWidth = window.innerWidth * (chartWidth / 100);
     const margin = { top: 20, right: 20, bottom: 20, left: 20 };
-      const max_height = 200;
+    const max_height = 200;
     const max_bar_width = 40;
     const bar_spacing = 45;
     var height = 600;  // Fixing hight to 500px for now
@@ -59,7 +59,7 @@ const AthleteAnalysis = () => {
     createScatterChart(chart2_svg, scatterChartData, chart2_height, chart2_width, margin, "medals", "athletes");
     display_axis_label(chart2_svg, "# of Medals →"  , svgWidth/2 , height*.85)
     display_axis_label(chart2_svg, "# of Medals →"  , svgWidth/2 , height*.85)
-},[apiFetchStatus])
+},[apiFetchStatus,scatterChartData,barChartData])
 
   return (
     <div>

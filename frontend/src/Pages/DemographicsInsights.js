@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { getChartContainer } from '../Components/Utility.js';
 import { createChoroplethChart } from '../Components/ChoroplethChartHelper.js';
 

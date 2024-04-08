@@ -1,5 +1,4 @@
-import * as d3 from 'd3';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { display_text, display_axis_label } from '../Components/TextHelper.js';
 import { createStackedBarChart } from '../Components/BarChartHelper.js';
 import { createMultiLineChart } from '../Components/LineChartHelper.js';
@@ -10,7 +9,6 @@ import { bar_color_palette, primary_text_color_accent, getChartContainer } from 
 const CountryComparison = () => {
   // State to store selected countries
   // TO DO: (later) ADD country filter
-  const [selectedCountries, setSelectedCountries] = useState([]);
   const [apiFetchStatus, setApiFetchStatus] = useState(false);
 
   // chart data states
@@ -74,7 +72,6 @@ const CountryComparison = () => {
 
     // Set up chart dimensions
     const chart2Height = 400;
-    const margin = { top: 20, right: 20, bottom: 30, left: 40 };
     height   = 600 ;
     width   = 1000 ;
   
@@ -100,7 +97,7 @@ const CountryComparison = () => {
 
     // Create a stacked bar chart which dsiplays the Total, Gold, Silver and Bronze medal counts for easy comparison
     createRadarChart(chart3_svg, radarChartData, bar_color_palette);
-  }, [apiFetchStatus]); 
+  }, [apiFetchStatus,lineChartData,radarChartData,stackedBarChartData]); 
 
   return (
     <div style={{textAlign: 'center'}}>
