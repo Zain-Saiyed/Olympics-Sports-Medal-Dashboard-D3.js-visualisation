@@ -1,5 +1,4 @@
-import * as d3 from 'd3';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { getChartContainer } from '../Components/Utility.js';
 import { createAreaChart } from '../Components/LineChartHelper.js';
 import { display_text, display_axis_label } from '../Components/TextHelper.js';
@@ -42,7 +41,7 @@ const HistoricalTrends = () => {
     };
 
     fetchChartData();
-  }, [selectedYear]);  
+  }, [selectedYear, areaChartData, polarArea1ChartData, polarArea2ChartData]);  
 
   // Display charts 
   useEffect(() => { 
