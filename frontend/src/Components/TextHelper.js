@@ -13,10 +13,12 @@ export function display_text(svg, x, y, text, font_size, text_color,font_weight=
 }
 
 // Function to display axis label
-export function display_axis_label(svg, label, width,height) {
+export function display_axis_label(svg, label, width, height, degree_rotation=0) {
     svg.append("text")
-    .attr("transform", "translate(" + (width / 2) + " ," + (height+15) + ")")
+    .attr("transform", "translate(" + (width / 2) + " ," + (height+15) + ") rotate("+degree_rotation+")")
     .style("text-anchor", "middle")
     .style("font-weight", "bold")
+    .style("font-size", "18px")
+    .style("letter-spacing", "1px")
     .text(label);
 }

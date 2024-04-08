@@ -11,3 +11,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* REF: 
+[1] https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-slider-thumb 
+[2] https://stackoverflow.com/questions/41609481/trouble-styling-range-input-thumb
+*/
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background-color: black; /* Thumb color */
+  border-radius: 50%; /* Rounded thumb */
+  cursor: pointer;
+}
+
+input[type=range]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background-color: balck; /* Thumb color */
+  border-radius: 50%; /* Rounded thumb */
+  cursor: pointer;
+}
