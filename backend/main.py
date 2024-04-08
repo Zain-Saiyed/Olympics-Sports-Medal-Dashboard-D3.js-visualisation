@@ -1,22 +1,21 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from routers import homepage_router
 import pandas as pd
 
 app = FastAPI()
 
-df = pd.read_csv("dataset/data.csv", encoding='ISO-8859-1')
+# Not needed whendeploying on render.com
+# ! REF: https://stackoverflow.com/questions/65635346/how-can-i-enable-cors-in-fastapi
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"], # Allow request from all origins
+    allow_credentials=True,
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allow_headers=["*"],
+)
 
-@app.get("/top_athletes_medal/{year}")
-async def get_ytd_highest_medal_athletes(year: int):
-    # Get secific year data 
-    df_year = df[df["Year"] == year]
-
-    # Group by Athlete and calculate the total number of medals earned
-    athlete_medals = df_year.groupby("Athlete")["Medal"].count()
-
-    # Get top 10 athletes with the highest medal count
-    top_10_athletes = athlete_medals.nlargest(10).reset_index()
-    
-    return {"year": year, "athletes": top_10_athletes.to_dict(orient="records")}
+app.include_router(homepage_router.router)
 
 
 if __name__ == "__main__":
